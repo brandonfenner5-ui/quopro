@@ -62,3 +62,4 @@ export default function Home() {
     </div>
   );
 }
+// Removed leftover JSX from previous implementation
