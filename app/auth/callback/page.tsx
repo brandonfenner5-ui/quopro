@@ -21,7 +21,7 @@ export default function AuthCallback() {
     }
 
     const handleAuth = async () => {
-      const { error } = await supabase.auth.exchangeCodeForSession(code);
+      const { error } = await supabase.auth.exchangeCodeForSession({ code });
 
       if (error) {
         console.error("Session exchange failed:", error);
