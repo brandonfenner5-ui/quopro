@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
@@ -46,7 +45,6 @@ export default function SignupPage() {
       return;
     }
 
-    // If your profile creation trigger is active, it runs automatically here.
     router.push("/dashboard");
   };
 
@@ -79,3 +77,28 @@ export default function SignupPage() {
             className="p-3 rounded border border-zinc-300 dark:border-zinc-700 bg-transparent"
             onChange={handleChange}
           />
+
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="p-3 rounded border border-zinc-300 dark:border-zinc-700 bg-transparent"
+            onChange={handleChange}
+          />
+
+          {errorMsg && (
+            <p className="text-red-500 text-sm">{errorMsg}</p>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-blue-600 text-white py-3 rounded hover:bg-blue-700 disabled:opacity-50"
+          >
+            {loading ? "Signing up..." : "Sign up"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
